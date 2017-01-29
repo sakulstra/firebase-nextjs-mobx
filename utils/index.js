@@ -1,0 +1,1 @@
+export { default as initializePage } from './_initialize-page';

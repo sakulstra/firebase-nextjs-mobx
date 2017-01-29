@@ -1,0 +1,9 @@
+{
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    "babel-root-import"
+  ]
+}

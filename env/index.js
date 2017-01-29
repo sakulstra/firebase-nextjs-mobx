@@ -1,0 +1,1 @@
+export { default as initBaseStore, store as BaseStore } from './_base-store';
