@@ -1,6 +1,8 @@
+import Link from 'next/prefetch';
+
 const Footer = () => (
     <footer className="footer">
-        I bims the footer
+        <Link href="/impressum"><a>Impressum</a></Link>
     </footer>
 );
 
