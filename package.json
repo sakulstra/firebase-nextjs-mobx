@@ -1,6 +1,6 @@
 {
   "name": "nextjsfirebase",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "demo project utilizing firebase as datastore inn nextjs",
   "scripts": {
     "dev": "next",
