@@ -1,0 +1,25 @@
+path /hashes/{userid} {
+    read() {isCurrentUser(userid)}
+}
+path /hashes/{userid}/{id} is Hash {
+    read() {isCurrentUser(userid)}
+    write() {isCurrentUser(userid)}
+}
+
+type Hash {
+    text: String,
+    modified: CurrentTimestamp,
+    created: InitialTimestamp
+}
+
+type CurrentTimestamp extends Number {
+  validate() { this == now }
+}
+
+type InitialTimestamp extends Number {
+  validate() { initial(this, now) }
+}
+
+initial(value, init) { value == (prior(value) == null ? init : prior(value)) }
+
+isCurrentUser(uid) { auth != null && auth.uid == uid }
