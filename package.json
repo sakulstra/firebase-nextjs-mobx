@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
+    "prestart": "next build",
+    "start": "next start -p $PORT",
     "lint": "standard",
     "lint-fix": "standard --fix"
   },
@@ -29,5 +30,8 @@
   },
   "standard": {
     "parser": "babel-eslint"
+  },
+  "engines": {
+    "node": "6.x"
   }
 }
