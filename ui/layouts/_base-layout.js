@@ -1,8 +1,9 @@
-import { Header, Footer } from '~/ui/generic';
+import React from 'react'
+import { Header, Footer } from '~/ui/generic'
 
-const BaseLayout = ({children}) => (
-    <div className="site">
-        <style jsx>{`
+const BaseLayout = ({ children }) => (
+  <div className='site'>
+    <style jsx>{`
             .site{
                display: flex;
                min-height: 100vh;
@@ -12,12 +13,12 @@ const BaseLayout = ({children}) => (
                flex: 1;
             }
         `}</style>
-        <Header />
-        <div className="content">
-            {children}
-        </div>
-        <Footer />
+    <Header />
+    <div className='content'>
+      {children}
     </div>
-);
+    <Footer />
+  </div>
+)
 
-export default BaseLayout;
+export default BaseLayout
