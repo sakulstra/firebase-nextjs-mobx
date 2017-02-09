@@ -6,6 +6,7 @@ class AvatarWidget extends Component {
   render () {
     return (
       <div>
+          {this.props.AuthStore.loading ? "loading" : "ready"}
         {/* this.props.AuthStore.user? <img src={this.props.AuthStore.user.photoURL} /> : null */}
         {this.props.AuthStore && this.props.AuthStore.user
             ? <button onClick={() => this.props.AuthStore.signOut()}>Logout</button>
@@ -14,5 +15,6 @@ class AvatarWidget extends Component {
       </div>
     )
   }
-};
+}
+
 export default AvatarWidget

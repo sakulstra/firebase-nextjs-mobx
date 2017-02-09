@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import { initializePage } from '~/utils'
+import { initializePage, protectedPage } from '~/utils'
 import { BaseLayout } from '~/ui/layouts'
-import { getHashStore } from '~/env/stores'
+import { getHashStore, getAuthStore } from '~/env/stores'
 import { HashList, HashInput } from '~/ui/diary'
 
 @observer
@@ -10,7 +10,7 @@ class Diary extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      hashStore: getHashStore()
+      hashStore: getHashStore(),
     }
   }
 
@@ -32,4 +32,4 @@ class Diary extends Component {
   }
 }
 
-export default initializePage(Diary)
+export default initializePage(protectedPage(Diary));

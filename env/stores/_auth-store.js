@@ -1,16 +1,17 @@
-import { observable } from 'mobx'
+import { observable, computed } from 'mobx'
 import firebase from 'firebase'
 import { auth } from './'
 
 let store = null
 
 class Store {
-    @observable user = null;
+    @observable user = null
+    @observable authIsPending = true
 
-  constructor (isServer) {
-    if (isServer) return
+  constructor () {
     this.unwatchAuth = auth.onAuthStateChanged(user => {
       this.user = user
+      this.authIsPending = false
     })
   }
 
@@ -37,6 +38,9 @@ class Store {
     })
   }
 
+  @computed get isAuthenticated() {
+      return !!this.user;
+  }
 }
 
 export default function getStore () {
