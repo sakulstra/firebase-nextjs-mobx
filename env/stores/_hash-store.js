@@ -2,6 +2,7 @@ import firebase from 'firebase'
 import { action, observable, autorun } from 'mobx'
 import isSameDay from 'date-fns/is_same_day'
 import { db, getAuthStore } from './'
+import { generateHash } from '~/utils'
 
 let store = null
 
@@ -18,8 +19,10 @@ class Store {
       const text = this.hash
       this.timeout = setTimeout(() => {
         const hashes = this.hashes.entries()
+        if (!hashes) return
         const last = hashes[hashes.length - 1]
-        if (hashes && last && isSameDay(new Date(last[1].created), new Date())) {
+        if (last.text === text) return
+        if (last && isSameDay(new Date(last[1].created), new Date())) {
           this.update(text, last[0])
         } else {
           this.addHash(text)
@@ -62,7 +65,7 @@ class Store {
     }
 
   setHash (v) {
-    this.hash = v
+    this.hash = generateHash(v)
   }
   stop = () => this.ref ? this.ref.off() : null;
 

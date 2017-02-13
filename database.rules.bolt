@@ -1,3 +1,7 @@
+path /greetings {
+    read() {return true}
+    write() {return false}
+}
 path /hashes/{userid} {
     read() {isCurrentUser(userid)}
 }

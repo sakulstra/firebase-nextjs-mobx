@@ -1,4 +1,5 @@
 import { observable, computed } from 'mobx'
+import Router from 'next/router'
 import firebase from 'firebase'
 import { auth } from './'
 
@@ -12,6 +13,9 @@ class Store {
     this.unwatchAuth = auth.onAuthStateChanged(user => {
       this.user = user
       this.authIsPending = false
+      if(user) {
+        Router.push('/diary')
+      }
     })
   }
 
