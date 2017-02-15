@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "prestart": "next build",
+    "postinstall": "next build",
     "start": "next start -p $PORT",
     "start-local": "next start -p 5000",
     "lint": "standard",
@@ -19,7 +19,7 @@
     "flexboxgrid": "^6.3.1",
     "mobx": "^3.0.2",
     "mobx-react": "^4.1.0",
-    "next": "2.0.0-beta.24",
+    "next": "2.0.0-beta.18",
     "react": "^15.4.2",
     "segment-js": "^1.0.8"
   },
