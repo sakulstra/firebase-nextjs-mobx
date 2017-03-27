@@ -14,7 +14,7 @@
   "author": "Lukas Strassel",
   "license": "MIT",
   "dependencies": {
-    "date-fns": "^1.27.2",
+    "date-fns": "^1.28.2",
     "firebase": "^3.6.9",
     "flexboxgrid": "^6.3.1",
     "mobx": "^3.0.2",
