@@ -14,18 +14,18 @@ class Store {
   constructor () {
     this.authStore = getAuthStore()
     autorun(() => {
-      if (!this.ready) return // data not yet fetched
+      if (!this.ready) return
       if (this.timeout) clearTimeout(this.timeout)
-      const text = this.hash
+      if (!this.hash || this.hash === '') return
       this.timeout = setTimeout(() => {
         const hashes = this.hashes.entries()
         if (!hashes) return
-        const last = hashes[hashes.length - 1]
-        if (last.text === text) return
-        if (last && isSameDay(new Date(last[1].created), new Date())) {
-          this.update(text, last[0])
+        const lastHash = hashes[hashes.length - 1]
+        if (lastHash && (lastHash[1].text === this.hash)) return
+        if (lastHash && isSameDay(new Date(lastHash[1].created), new Date())) {
+          this.updateLastHash(this.hash, lastHash[0])
         } else {
-          this.addHash(text)
+          this.addHash(this.hash)
         }
       }, 200)
     })
@@ -69,7 +69,7 @@ class Store {
   }
   stop = () => this.ref ? this.ref.off() : null;
 
-  update = (text, hashId) => {
+  updateLastHash = (text, hashId) => {
     const ref = this.ref.child(`${hashId}`)
     const stamp = firebase.database.ServerValue.TIMESTAMP
     const updates = {

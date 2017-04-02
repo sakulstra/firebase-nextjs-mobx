@@ -3,7 +3,7 @@ import { initializePage } from '~/utils'
 import { BaseLayout } from '~/ui/layouts'
 
 const About = () => (
-    <BaseLayout>
+  <BaseLayout>
         I bims the access denied page.
     </BaseLayout>
 )

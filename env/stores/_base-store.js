@@ -24,7 +24,7 @@ class Store {
     @action start = () => {
       this.timer = setInterval(() => {
         this.helloMessage = messages[Math.floor(Math.random() * (messages.length - 1))]
-      }, 10000)
+      }, 5000)
     }
 
   stop = () => clearInterval(this.timer)

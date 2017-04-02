@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Footer } from '~/ui/generic'
+import { Header, Footer } from '../generic'
 
 const BaseLayout = ({ children }) => (
   <div className='site'>

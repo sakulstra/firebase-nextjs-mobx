@@ -10,7 +10,7 @@ class Diary extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      hashStore: getHashStore(),
+      hashStore: getHashStore()
     }
   }
 
@@ -32,4 +32,4 @@ class Diary extends Component {
   }
 }
 
-export default initializePage(protectedPage(Diary));
+export default initializePage(protectedPage(Diary))

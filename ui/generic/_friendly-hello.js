@@ -3,7 +3,6 @@ import { observer, inject } from 'mobx-react'
 
 @inject('BaseStore') @observer
 export default class FriendlyHello extends Component {
-
   componentDidMount () {
     this.props.BaseStore.start()
   }

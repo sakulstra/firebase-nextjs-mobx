@@ -13,7 +13,7 @@ class Store {
     this.unwatchAuth = auth.onAuthStateChanged(user => {
       this.user = user
       this.authIsPending = false
-      if(user) {
+      if (user) {
         Router.push('/diary')
       }
     })
@@ -42,8 +42,8 @@ class Store {
     })
   }
 
-  @computed get isAuthenticated() {
-      return !!this.user;
+  @computed get isAuthenticated () {
+    return !!this.user
   }
 }
 
